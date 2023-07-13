@@ -1,0 +1,19 @@
+public int countNegatives(int[][] grid) {
+    int count = 0;
+    int rows = grid.length;
+    int cols = grid[0].length;
+    
+    int row = 0;
+    int col = cols - 1;
+    
+    while (row < rows && col >= 0) {
+        if (grid[row][col] < 0) {
+            count += (rows - row);  // Increment count by the remaining elements in the column
+            col--;  // Move left to check the previous column
+        } else {
+            row++;  // Move down to check the next row
+        }
+    }
+    
+    return count;
+}
