@@ -1,0 +1,40 @@
+import java.util.Scanner;
+import java.util.*;
+
+public class binaryNumber {
+	
+	public static int OperationsBinaryString(String str) {
+		int n=str.length();
+		if(str==null) {
+			return -1;
+		}
+		int result = Character.getNumericValue(str.charAt(0));
+		for(int i=1;i<n;i+=2) {
+			char operation = str.charAt(i);
+			int operand = Character.getNumericValue(str.charAt(i+1));
+			switch(operation) {
+			case 'A':
+				result = result & operand ;
+				break;
+			case 'B':
+				result = result | operand ;
+				break;
+			case 'C':
+				result = result ^ operand ;
+				break;
+			}
+				
+		}
+		return result ;
+		
+	}
+
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		String s = sc.next();
+		int binary = OperationsBinaryString(s);
+		System.out.println(binary);
+
+	}
+
+}
