@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class absoluteDifference {
+	
+	public int findCount(int[] arr,int length,int num,int diff) {
+		int count=0;
+		for(int i=0;i<length;i++) {
+			int a=Math.abs(arr[i]-num);
+			if(a<diff) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter length");
+		int n=sc.nextInt();
+		int[] arr=new int[n];
+		for(int i=0;i<n;i++) {
+			arr[i]=sc.nextInt();
+		}
+		System.out.println("Enter num");
+		int num=sc.nextInt();
+		System.out.println("Enter difference");
+		int diff=sc.nextInt();
+		absoluteDifference ab=new absoluteDifference();
+		int result=ab.findCount(arr, n, num, diff);
+		System.out.println(result);
+
+	}
+
+}
