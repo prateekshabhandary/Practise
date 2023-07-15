@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class differenceBySum {
+	
+	private static int differenceBySum(int n,int m) {
+		int divbyn=0;
+		int notdivbyn=0;
+		for(int i=1;i<=m;i++) {
+			if(i%n==0) {
+				divbyn+=i;
+			}
+			else {
+				notdivbyn+=i;
+			}
+		}
+		int sum=notdivbyn-divbyn;
+		return sum;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int m=sc.nextInt();
+		int finalresult=differenceBySum(n,m);
+		System.out.println(finalresult);
+
+	}
+
+}
