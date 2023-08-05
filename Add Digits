@@ -1,0 +1,16 @@
+class Solution {
+    public int addDigits(int num) {
+        String s = Integer.toString(num);
+        int sum = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            int digitValue = Character.getNumericValue(ch); 
+            sum = sum + digitValue;
+        }
+        String sums = Integer.toString(sum);
+        if (sums.length() >= 2) {
+            return addDigits(sum); 
+        }
+        return sum;
+    }
+}
