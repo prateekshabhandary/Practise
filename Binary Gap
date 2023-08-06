@@ -1,0 +1,40 @@
+class Solution {
+    public int binaryGap(int n) {
+        String result = convertToBinary(n);
+        ArrayList<Integer> a = new ArrayList<>();
+        for(int i=0;i<result.length()-1;i++) {
+            int p1 = i;
+            int p2 = i+1;
+            while(p2<result.length() && result.charAt(p2)!='1') {
+                p2++;
+            }
+            if (p2 < result.length()) {
+                a.add(p2 - p1);
+            }
+        }
+        if(a.isEmpty()) {
+            return 0;
+        }
+        int max = a.get(0);
+        for (int i = 1; i < a.size(); i++) {
+            int currentValue = a.get(i);
+            if (currentValue > max) {
+                max = currentValue;
+            }
+        }
+
+        return max;
+    }
+
+    public String convertToBinary(int num) {
+        StringBuilder sb = new StringBuilder();
+        int rem = 0;
+        while(num!=0) {
+            rem = num%2;
+            sb.insert(0,rem);
+            num = num/2;
+        }
+        String s = sb.toString();
+        return s;
+    }
+}
