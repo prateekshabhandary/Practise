@@ -1,0 +1,26 @@
+class Solution {
+    public boolean rotateString(String s, String goal) {
+        int count =0;
+        StringBuilder x = new StringBuilder(s);
+        while(count<=s.length()) {
+            StringBuilder newS=rotate(x);
+            if(goal.equals(newS.toString())) {
+                return true;
+            }
+            else {
+                count++;
+            }
+        }
+        return false;
+    }
+
+    public StringBuilder rotate(StringBuilder sb) {
+        char c = sb.charAt(0);
+        for(int i=1;i<sb.length();i++) {
+            char a= sb.charAt(i);
+            sb.setCharAt(i-1,a);
+        }
+        sb.setCharAt(sb.length()-1,c);
+        return sb;
+    }
+}
