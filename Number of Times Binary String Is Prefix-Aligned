@@ -1,0 +1,15 @@
+class Solution {
+    public int numTimesAllBlue(int[] flips) {
+        int count = 0;
+        int maxBit = 0;
+
+        for (int i = 0; i < flips.length; i++) {
+            maxBit = Math.max(maxBit, flips[i]);
+            if (maxBit == i + 1) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+}
