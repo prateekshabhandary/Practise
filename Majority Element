@@ -1,0 +1,26 @@
+class Solution
+{
+    static int majorityElement(int a[], int size)
+    {
+        // your code here
+        int x=size/2;
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<size;i++) {
+            if(map.containsKey(a[i])) {
+                int b=map.get(a[i]);
+                map.put(a[i],b+1);
+            }
+            else {
+                map.put(a[i],1);
+            }
+        }
+        for(Map.Entry<Integer,Integer> entry : map.entrySet()) {
+            int val=entry.getValue();
+            if(val>x) {
+                return entry.getKey();
+            }
+        }
+        return -1;
+        
+    }
+}
