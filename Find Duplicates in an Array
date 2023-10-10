@@ -1,0 +1,26 @@
+class Solution {
+    public static ArrayList<Integer> duplicates(int arr[], int n) {
+        // code here
+        ArrayList<Integer> a = new ArrayList<>();
+        HashSet<Integer> set = new HashSet<>();
+        HashSet<Integer> duplicatesSet = new HashSet<>(); // New HashSet to store duplicates
+
+        for (int i = 0; i < n; i++) {
+            int x = arr[i];
+            if (set.contains(x)) {
+                if (!duplicatesSet.contains(x)) { // Check if x is not already added to duplicates
+                    a.add(x);
+                    duplicatesSet.add(x); // Add x to duplicates set to avoid duplicate addition
+                }
+            } else {
+                set.add(x);
+            }
+        }
+
+        if (a.isEmpty()) {
+            a.add(-1);
+        }
+        Collections.sort(a);
+        return a;
+    }
+}
