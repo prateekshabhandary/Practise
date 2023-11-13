@@ -1,0 +1,37 @@
+class Solution
+{
+    //Function to find the smallest positive number missing from the array.
+    static int missingNumber(int arr[], int size)
+    {
+        // Your code here
+        HashSet<Integer> set=new HashSet<>();
+        for(int val : arr) {
+            set.add(val);
+        }
+        int l=biggest(arr,size);
+        for(int i=1;i<=l;i++) {
+            if(!set.contains(i)) {
+                return i;
+            }
+        }
+        Boolean check=false;
+        for(int i=0;i<size;i++) {
+            if(arr[i]>0) {
+                check=true;
+            }
+        }
+        if(check==false) {
+            return 1;
+        }
+        return l+1;
+    }
+    public static int biggest(int[] arr,int n) {
+        int x=arr[0];
+        for(int i=1;i<n;i++) {
+            if(arr[i]>x) {
+                x=arr[i];
+            }
+        }
+        return x;
+    }
+}
